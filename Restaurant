@@ -1,0 +1,70 @@
+<html>
+<head><title>Restaurant</title>
+<script>
+function bill(){
+   main=document.getElementById("main");
+   starter=document.getElementById("starter");
+   soft=document.getElementById("soft");
+   msg="item cost\n";
+   total=0;
+for(i=0;i<main.options.length;i++)
+{
+   ch=main.options[i];
+   if(ch.selected==true)
+   {
+      price=parseInt(ch.value);
+      total=total+price;
+      msg=msg+ch.text+" "+price+"\n";
+   }
+}
+for(i=0;i<starter.options.length;i++)
+{
+  ch=starter.options[i];
+  if(ch.selected==true)
+  {
+    price=parseInt(ch.value);
+    total=total+price;
+    msg=msg+ch.text+" "+price+"\n";
+  }
+}
+for(i=0;i<soft.options.length;i++)
+{
+  ch=soft.options[i];
+  if(ch.selected==true)
+  {
+    price=parseInt(ch.value);
+     total=total+price;
+    msg=msg+ch.text+" "+price+"\n";
+}
+}
+    msg=msg+"total cost"+total;
+    document.getElementById("disp").value=msg;
+}
+</script>
+</head>
+<body>
+<form>
+<select id="main" multiple>
+  <option value="70">Noodles</option>
+  <option value="80">Chicken Roll</option>
+  <option value="110">Sandwich</option>
+  <option value="100">Pizza</option>
+</select>
+<select id="starter" multiple>
+  <option value="90">Mutton Biryani</option>
+  <option value="120">Beef Roll</option>
+  <option value="70">Chicken tikka</option>
+  <option value="150">Tandoori Chicken</option>
+</select></br>
+<select id="soft" multiple>
+  <option value="110">Red Bull</option>
+  <option value="45">Slice</option>
+  <option value="60">Pepsi</option>
+  <option value="210">Monster</option>
+</select></br>
+<textarea rows=10 col=40 id="disp"></textarea></br>
+<input type="button" onclick="bill()" value="submit">
+<input type="reset" value="reset">
+</form>
+</body>
+</html>
